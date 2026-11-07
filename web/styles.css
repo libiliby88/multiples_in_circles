@@ -1,0 +1,212 @@
+:root {
+  --text: #222;
+  --muted: #666;
+  --border: #c9c9c9;
+  --blue: #1565c0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 280px;
+  min-height: 100%;
+  background: white;
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #f4f4f4;
+  color: var(--text);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#app {
+  width: min(100%, 920px);
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.35rem, 5vw, 2rem);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+input[type="text"] {
+  width: 4.4rem;
+  min-height: 36px;
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  color: var(--text);
+}
+
+.slider-label {
+  min-width: 170px;
+  flex: 1 1 170px;
+}
+
+.n-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+input[type="range"] {
+  width: 150px;
+  min-width: 0;
+  accent-color: var(--blue);
+}
+
+output {
+  min-width: 2rem;
+  font-weight: 700;
+}
+
+.small-button {
+  width: 34px;
+  min-height: 34px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.controls > button:last-child {
+  padding: 7px 14px;
+}
+
+.hint {
+  margin: 10px 0 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.canvas-container {
+  position: relative;
+  width: min(100%, 640px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+
+#circle-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.point-popup {
+  position: absolute;
+  padding: 5px 10px;
+  border: 2px solid #ffc107;
+  border-radius: 10px;
+  background: #fff3cd;
+  color: #222;
+  font-size: 0.85rem;
+  font-weight: 700;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.point-popup[hidden] {
+  display: none;
+}
+
+.next-button {
+  display: block;
+  margin: 10px auto 0;
+  padding: 7px 18px;
+}
+
+.next-button[hidden] {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding-inline: 8px;
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .controls > label:nth-of-type(1) {
+    grid-column: span 2;
+  }
+
+  .n-control {
+    grid-column: span 2;
+    min-width: 0;
+  }
+
+  .n-control .slider-label {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .n-control input[type="range"] {
+    width: min(100px, 100%);
+  }
+
+  .controls > label:nth-of-type(2),
+  .controls > label:nth-of-type(3),
+  #traverse-button {
+    grid-column: span 2;
+  }
+
+  .n-control .small-button {
+    flex: 0 0 34px;
+  }
+
+  input[type="range"] {
+    width: min(125px, 100%);
+  }
+
+  .canvas-container {
+    width: min(100%, 300px);
+  }
+}
